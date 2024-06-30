@@ -13,7 +13,7 @@ env:
 
 jobs:
     echos:
-        runs-on: ubunutu-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
@@ -21,4 +21,4 @@ jobs:
             - name: Echos
               uses: imesense/gha-echo-action@v0.2
               with:
-                  input-string: 'Input'
+                  input-string: ${{ vars.MONGO_URI }}
