@@ -22,3 +22,14 @@ jobs:
               uses: imesense/gha-echo-action@v0.2
               with:
                   input-string: ${{ vars.MONGO_URI }}
+
+            - name: Setup NodeJS Version
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 20
+
+            - name: Install Dependencies
+              run: npm install
+
+            - name: Unit Testing
+              run: npm test
