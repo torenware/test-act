@@ -46,3 +46,7 @@ jobs:
                     - 27000:27017
                 env:
                     MONGO_USER_PW: ${{ vars.MONGO_PASSWORD }}
+            nginx:
+                image: nginx
+                ports:
+                    - 80:80

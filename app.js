@@ -16,7 +16,15 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-console.log("env: ", process.env);
+try {
+  const rslt = await fetch("http://localhost:80/");
+  const isOK = rslt.ok ? "success" : "not success";
+  console.log('we did not die, got ' + isOK);
+
+} catch (err) {
+  console.log('nginx: ' + err);
+
+}
 
 try {
   await mongoose.connect(process.env.MONGO_URI, {
