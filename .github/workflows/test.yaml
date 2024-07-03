@@ -43,10 +43,8 @@ jobs:
             planets:
                 image: torenware/solar-system-mongodb
                 ports:
-                    - 27017
+                    - 27017:27017
                 env:
                     MONGO_USER_PW: ${{ vars.MONGO_PASSWORD }}
-            nginx:
-                image: nginx
-                ports:
-                    - 80:80
+                    MONGO_INITDB_ROOT_PASSWORD: "banana-ubiquitous-fleet" \
+                    MONGO_INITDB_ROOT_USERNAME: root
