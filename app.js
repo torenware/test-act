@@ -16,21 +16,15 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
-try {
-  const rslt = await fetch("http://localhost:80/");
-  const isOK = rslt.ok ? "success" : "not success";
-  console.log('we did not die, got ' + isOK);
-
-} catch (err) {
-  console.log('nginx: ' + err);
-
-}
 
 try {
-  await mongoose.connect(process.env.MONGO_URI, {
+  const options = {
     user: process.env.MONGO_USERNAME,
     pass: process.env.MONGO_PASSWORD,
-  });
+  };
+  console.log("uri", process.env.MONGO_URI);
+  console.log(options);
+  await mongoose.connect(process.env.MONGO_URI, options);
   console.log('Mongodb is connected');
 } catch (err) {
   console.log("error!! " + err)
