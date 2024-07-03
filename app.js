@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/')));
 app.use(cors())
 
+console.log("env: ", process.env);
+
 try {
   await mongoose.connect(process.env.MONGO_URI, {
     user: process.env.MONGO_USERNAME,
