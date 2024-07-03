@@ -39,8 +39,8 @@ jobs:
               with:
                   name: Mocha-Test-Result
                   path: test-results.xml
-      services:
-        enginex:
-          image: nginx
+        services:
+          enginex:
+            image: nginx
 
 
