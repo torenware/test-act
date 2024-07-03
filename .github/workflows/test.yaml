@@ -41,6 +41,6 @@ jobs:
                   path: test-results.xml
         services:
             planets:
-                image: solar-system-mongodb
+                image: torenware/solar-system-mongodb
                 ports:
                     - 27000:27017
