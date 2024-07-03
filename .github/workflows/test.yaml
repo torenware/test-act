@@ -43,7 +43,7 @@ jobs:
             planets:
                 image: torenware/solar-system-mongodb
                 ports:
-                    - 27000:27017
+                    - 27017
                 env:
                     MONGO_USER_PW: ${{ vars.MONGO_PASSWORD }}
             nginx:
