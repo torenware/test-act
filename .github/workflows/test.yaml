@@ -45,6 +45,6 @@ jobs:
                 ports:
                     - 27017:27017
                 env:
-                    MONGO_USER_PW: '${{ vars.MONGO_PASSWORD }}'
+                    MONGO_USER_PW: secret-sauce
                     #MONGO_INITDB_ROOT_PASSWORD: 'banana-ubiquitous-fleet'
                     #MONGO_INITDB_ROOT_USERNAME: root
