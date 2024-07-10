@@ -52,9 +52,17 @@ jobs:
     k8s-test:
         runs-on: ubuntu-latest
         steps:
-            - name: load kubectl
-              uses: actions-hub/kubectl@master
-              env:
-                  KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+            - uses: azure/setup-kubectl@v3
               with:
-                  args: get pods
+                  version: 'v1.30' # default is latest stable
+              id: install
+            - name: load kubectl
+              uses: azure/k8s-set-context@v4
+              with:
+                  method: kubeconfig
+                  kubeconfig: ${{ secrets.KUBE_CONFIG }}
+            - name: Talk to cluster
+              run: |
+                  kubectl version
+                  echo -------------------------
+                  kubectl get nodes
