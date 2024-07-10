@@ -54,7 +54,7 @@ jobs:
         steps:
             - uses: azure/setup-kubectl@v3
               with:
-                  version: 'v1.30' # default is latest stable
+                  version: 'v1.30.1' # default is latest stable
               id: install
             - name: load kubectl
               uses: azure/k8s-set-context@v4
